@@ -64,3 +64,22 @@ function gen_one_to_three() {
 foreach(gen_one_to_three() as $key => $value) {
         echo "$key => $value <br>";
 }
+
+// current rodo dabartine pozicija
+// next sekancia pozicija
+// prev praeita pozicija
+// 'end' i pabaiga
+// 'reset' sugrazina i pradzia
+
+$transport = ['foot', 'bike', 'car', 'plane'];
+
+echo '<br>';
+echo current($transport);
+echo '<br>';
+echo next($transport);
+echo '<br>';
+echo prev($transport);
+echo '<br>';
+echo end($transport);
+echo '<br>';
+echo reset($transport);
