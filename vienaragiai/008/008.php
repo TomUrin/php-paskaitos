@@ -53,5 +53,14 @@ $antra = fn($v) => $v * 6;
 
 $funkcijuMasyvas = [$pirma, $antra];
 
+// funkcija generatorius
 
+function gen_one_to_three() {
+    for($i = 0; $i <= 10; $i++) {
+        yield $i => rand(1000, 9999);
+    }
+}
 
+foreach(gen_one_to_three() as $key => $value) {
+        echo "$key => $value <br>";
+}
