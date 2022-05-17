@@ -5,10 +5,12 @@ echo '<pre>';
 //jeigu apskliausti '/b(\d+/)' duos du rezulatus, jeigu uzdedam klaustuka, tada paima maziausia kieki '/(.)(\d+?/)'
 // '/(.)(\d(\d\d)\d)', kiek skliausteliu, tiek bus atsakymu masyve
 // (.), bet koks simbolis
+// '/\.(.*)\./', surasti taskus, * reiskia bet koks simbolis, bet kiek kartu pakartotas
+/*
 echo preg_replace_callback(
-    '/\d+/',
+    '/\.(.*)\./',
     'ieskok',
-    'xvbcvkb' . rand(1000, 9999) . 'hsdvnjiruvdv');
+    'xvbcvkb.' . rand(1000, 9999) . '.hsdvnjiruvdv');
 
 echo '<br>';
 
@@ -16,3 +18,40 @@ echo '<br>';
         print_r($m);
         return '-'.$m[0].'-';
     }
+*/
+
+//surasti trys paskutinius skaicius
+
+/*$m = [5, 5, 7, 5, 9, 8, 7, 7, 9];
+
+$m3 = array_slice($m, -3, 3);
+
+print_r($m3);
+*/
+
+
+//rand nuo 100iki 999. Parašyti 3 funkcijas, sudėti jas į masyvą, tą masyvą praforyčinti ir kaip argumentą panaudoti sugeneruota rand. Funk daugina ir spausdina gautą argumentą 3, 5, 7 atitinkamai DONE!
+
+$skaicius = rand(100, 999);
+$masyvas = [];
+
+array_push($masyvas,
+            fn($x) => $x * 3,
+            fn($x) => $x * 5,
+            fn($x) => $x * 7,
+);
+
+foreach($masyvas as &$funkc) {
+    //echo $funkc($skaicius).'<br>';
+    $funkc = $funkc($skaicius);
+}
+
+print_r($masyvas);
+
+$pirma = fn($v) => $v * 3;
+$antra = fn($v) => $v * 6;
+
+$funkcijuMasyvas = [$pirma, $antra];
+
+
+
