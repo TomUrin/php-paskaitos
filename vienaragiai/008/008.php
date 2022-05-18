@@ -83,3 +83,6 @@ echo '<br>';
 echo end($transport);
 echo '<br>';
 echo reset($transport);
+
+// pereiti i kita folderi per terminala, irasome 'cd "folder-name"'
+// nusileisti zemyn cd ..
