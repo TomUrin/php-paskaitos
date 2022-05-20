@@ -11,4 +11,11 @@ galime parasyti tik viena eilute js kodo {}
 
 2.
 
+parametras - props (gali buti bet kas)
+norint perduoti skaiciu irasome i {4}
+
+
+3.
+
+state:
 

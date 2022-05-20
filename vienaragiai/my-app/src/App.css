@@ -36,3 +36,93 @@
     transform: rotate(360deg);
   }
 }
+
+.kvc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.kv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 77px;
+  height: 77px;
+  background-color: skyblue;
+  margin: 7px;
+  border-radius: 5px;
+}
+
+.kvr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 77px;
+  height: 77px;
+  background-color: crimson;
+  margin: 7px;
+  border-radius: 5px;
+}
+
+.btnC {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: skyblue;
+  width: 200px;
+  height: 50px;
+  margin-top: 0px;
+  margin: 10px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+}
+
+.btnRed {
+  background-color: crimson;
+  width: 200px;
+  height: 50px;
+  margin: 10px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+}
+
+.btnReset {
+  background-color: greenyellow;
+  width: 200px;
+  height: 50px;
+  margin: 10px 30px;
+  font-size: 20px;
+  border-radius: 30px;
+}
+
+.aps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: crimson;
+  margin-bottom: 50px;
+  border-radius: 50%;
+}
+
+.kvad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+  margin-bottom: 50px;
+}
+
+.num {
+  margin: 20px;
+  font-size: 100px;
+}

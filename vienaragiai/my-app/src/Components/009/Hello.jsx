@@ -1,10 +1,11 @@
-function Hello() {
+function Hello({spalva, size, skaicius}) {
     return (
     <h1 style={
         {
-            color: 'red',
+            color: spalva,
+            fontSize: size + 'px',
         }
-    }>Hello</h1>
+    }>Hello {skaicius + 10}</h1>
     )
 }
 
