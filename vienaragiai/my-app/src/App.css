@@ -49,8 +49,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 77px;
-  height: 77px;
+  width: 87px;
+  height: 87px;
   background-color: skyblue;
   margin: 7px;
   border-radius: 5px;
@@ -105,8 +105,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  margin: 20px;
+  width: 120px;
+  height: 120px;
   background-color: crimson;
   margin-bottom: 50px;
   border-radius: 50%;

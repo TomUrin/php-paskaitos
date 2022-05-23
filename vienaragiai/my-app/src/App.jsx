@@ -1,32 +1,28 @@
+// import { useState } from 'react';
 import './App.css';
-import {useState} from "react";
-
+import Tvenkinys from './Components/011/Tvenkinys';
+const seaPlaners = [
+    {id: 1, type: 'man', name: 'Lina', color: 'blue'},
+    {id: 2, type: 'car', name: 'Opel', color: 'red'},
+    {id: 3, type: 'animal', name: 'Vilkas', color: 'green'},
+    {id: 4, type: 'fish', name: 'Ungurys', color: 'yellow'},
+    {id: 5, type: 'man', name: 'Tomas', color: 'green'},
+    {id: 6, type: 'animal', name: 'Bebras', color: 'red'},
+    {id: 7, type: 'animal', name: 'Barsukas', color: 'green'},
+    {id: 8, type: 'car', name: 'MB', color: 'blue'},
+    {id: 9, type: 'car', name: 'ZIL', color: 'red'},
+    {id: 10, type: 'man', name: 'Teta Toma', color: 'yellow'},
+  ];
+  
 function App() {
 
-    const [kv, setKv] = useState([]);
-    const addKv = () => setKv(kvM => [...kvM, "skyblue"])
-    const addKvr = () => setKv(kvM => [...kvM, "crimson"])
-    const remKv = () => setKv(kvm => kvm.slice(0, 0));
-
-    
-  return (
-    <div className="App">
-      <header className="App-header">
-      <div className='kvc'>
-                {
-                    kv.map((c) => <div className = "kv" style={{background: c}}></div>)
-                }
-                
-                </div>
-                <div className='btnC'>
-        <button className='btnRed' onClick={addKvr}>Add Red</button>
-      <button className='btn' onClick={addKv}>Add Blue</button>
-      </div>
-      <button className='btnReset' onClick={remKv}>RESET</button>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+          <header className="App-header">
+            <Tvenkinys seaPlaners={seaPlaners}></Tvenkinys>
+          </header>
+        </div>
+      );
 }
-
 
 export default App;

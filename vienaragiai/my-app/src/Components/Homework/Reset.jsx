@@ -16,7 +16,6 @@ function App() {
                 {
                     kv.map((c) => <div className = "kv" style={{background: c}}></div>)
                 }
-                
                 </div>
                 <div className='btnC'>
         <button className='btnRed' onClick={addKvr}>Add Red</button>
