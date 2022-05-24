@@ -22,17 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Form</title>
 </head>
 <body>
-    
     <form action = "" method = "post">
-
-    Tavo tekstas: <input type = "text" name = "tek">
-
-    <button type = "submit">GO</button>
-
+        Tavo tekstas: <input type = "text" name = "tek">
+        <button type = "submit">GO</button>
     </form>
-
-
-
-
 </body>
 </html>
