@@ -14,8 +14,7 @@ function App() {
     useEffect(() => {
       axios.get('http://localhost/php-paskaitos/vienaragiai/011/index.php')
       .then(res => {
-        console.log(res);
-        setCats(res.data);
+        console.log(res.data);
       });
     }, []);
 
