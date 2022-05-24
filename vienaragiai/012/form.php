@@ -1,9 +1,10 @@
 <?php
+session_start();
 //scenarijus POST
 $_SERVER['REQUEST_METHOD'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    die($_POST['tek']);
+    $_SESSION['bla'] = $_POST['tek'];
     header('Location: http://localhost/php-paskaitos/vienaragiai/012/form.php');
     die;
 
