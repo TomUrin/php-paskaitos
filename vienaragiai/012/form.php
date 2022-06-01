@@ -1,11 +1,12 @@
 <?php
 session_start();
-//scenarijus POST
-$_SERVER['REQUEST_METHOD'];
+// Scenarijus POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $_SESSION['bla'] = $_POST['tek'];
-    header('Location: http://localhost/php-paskaitos/vienaragiai/012/form.php');
+   $_SESSION['bla'] = $_POST['tek'];
+
+
+    header('Location: http://localhost/vienaragiai/012/form.php');
     die;
 
 }
@@ -13,19 +14,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Scenarijus GET
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
+    <title>FORM</title>
 </head>
 <body>
-    <form action = "" method = "post">
-        Tavo tekstas: <input type = "text" name = "tek">
-        <button type = "submit">GO</button>
+
+    <?php
+    echo $_SESSION['bla'];
+    ?>
+
+    <form action="" method="post">
+
+    Tavo tekstas: <input type="text" name="tek">
+
+    <button type="submit">GO</button>
     </form>
+    
 </body>
 </html>
