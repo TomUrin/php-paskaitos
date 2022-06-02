@@ -1,6 +1,8 @@
 <?php
 
 define('INSTALL', '/php-paskaitos/vienaragiai/014/in/');
+define('DIR', __DIR__ . '/app/');
+define('URL', 'http://localhost/php-paskaitos/vienaragiai/014/in/');
 
 $uri = str_replace(INSTALL, '', $_SERVER['REQUEST_URI']);
 $uri = explode('/', $uri);
@@ -24,7 +26,5 @@ if(count($uri) == 2) {
     require __DIR__ . '/app/404.php';
 }
 }
-
-
 
 ?>
