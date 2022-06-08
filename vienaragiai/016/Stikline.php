@@ -5,11 +5,15 @@ class Stikline {
     public $turis;
     static public $gerimas = 'Pepsi';
 
-    function __construct() {
+    public static function valio() {
+        echo '<h1>Valio</h1>';
+    }
+
+    public function __construct() {
         $this->turis = rand(100, 200);
     }
 
-    function kas() {
+    public function kas() {
         echo '<br>------>'.self::$gerimas;
     }
 }

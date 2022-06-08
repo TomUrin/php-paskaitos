@@ -3,7 +3,7 @@
 
 $cats = ['Pilkis', 'Murkis'];
 
-if (!file_exists(__DIR__.'/cats.jsonn')) {
+if (!file_exists(__DIR__.'/cats.json')) {
     file_put_contents(__DIR__.'/cats.json', json_encode([]));
 }
 
