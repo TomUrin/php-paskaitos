@@ -1,0 +1,17 @@
+{
+    "name": "super/duper",
+    "authors": [
+        {
+            "name": "TomUri",
+            "email": "urinovic.tomas@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Meska\\Lokys\\": "",
+            "Old\\": "bb/"
+        }
+    },
+    "require": {}
+}
+
