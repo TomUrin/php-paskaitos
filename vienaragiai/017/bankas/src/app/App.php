@@ -42,7 +42,7 @@ class App {
         $m = ($_SERVER['REQUEST_METHOD']);
 
         if (count($uri) == 1 && $uri[0] === '') {
-            return (new HomeController)->index();
+            return (new HomeController)->index( );
         }
 
         if ('GET' == $m && count($uri) == 1 && $uri[0] === 'json') {

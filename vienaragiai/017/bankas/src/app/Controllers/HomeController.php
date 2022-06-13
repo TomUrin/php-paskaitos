@@ -10,6 +10,17 @@ class HomeController {
         echo 'AAA: ' .$param;
     }
 
+    public function index() {
+        $list = [];
+        for($i = 0; $i < 10; $i++) {
+            $list[] = rand(1000, 9999);
+        }
+        return App::view('home', [
+            'title' => 'Alabama',
+            'list' => $list
+        ]);
+    }
+
     public function indexJson() {
         $list = [];
         for($i = 0; $i < 10; $i++) {

@@ -18,3 +18,17 @@ h1 span {
   border: 1px solid black;
   margin: 5px;
 }
+
+h2 {
+  color: aquamarine;
+}
+
+.home {
+  color: brown;
+}
+.home_bin {
+  color: cadetblue;
+}
+.home_bin_content {
+  color: cornflowerblue;
+}
