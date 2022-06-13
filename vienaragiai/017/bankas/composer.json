@@ -1,0 +1,17 @@
+{
+    "name": "urino/bankas",
+    "description": "Litbankas",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Litbankas\\": "src/app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TomasUri",
+            "email": "urinovic.tomas@gmail.com"
+        }
+    ],
+    "require": {}
+}
