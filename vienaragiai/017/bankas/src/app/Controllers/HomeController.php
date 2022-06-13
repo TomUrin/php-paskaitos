@@ -5,12 +5,17 @@ use Litbankas\App;
 use Litbankas\Messages as M;
 
 class HomeController {
-    public function index() {
+
+    public function getIt($param) {
+        echo 'AAA: ' .$param;
+    }
+
+    public function indexJson() {
         $list = [];
         for($i = 0; $i < 10; $i++) {
             $list[] = rand(1000, 9999);
         };
-        return App::view('home', [
+        return App::json([
             'title' => 'Alabama',
              'list' => $list
             ]);
@@ -21,7 +26,7 @@ class HomeController {
     }
 
     public function doForm() {
-        M::add('Puiku', 'alert');
+        M::add('Puiku', 'alert'); 
         M::add($_POST['alabama'], 'success');
         return App::redirect('form');
     }
