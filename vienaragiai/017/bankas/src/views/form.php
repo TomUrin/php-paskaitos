@@ -7,10 +7,11 @@ require __DIR__ . '/top.php';
 
 <fieldset>
     <legend>Enter</legend>
-        <form method="post">
-            <input type="text" name="alabama">
-            <button type="submit">Go</button>
-        </form>
+    <form method="post">
+    <input type="text" name="alabama">
+    <button type="submit">GO</button>
+    <input type="hidden" name="csrf" value="<?= App::csrf() ?>">
+    </form>
 </fieldset>
 
 <?php
