@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // VALUES (value1, value2, value3, ...);
     if ($_POST['_method'] == 'post') {
         $sql = "
-        INSERT INTO trees
+        INSERT INTO new_trees
         (title, height, type)
         VALUES (:a, :z, :type)
         ";
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // DELETE
         // DELETE FROM table_name WHERE condition;
         $sql = "
-            DELETE FROM trees
+            DELETE FROM new_trees
             WHERE id = ?
         ";
         $stmt = $pdo->prepare($sql);
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // SET column1 = value1, column2 = value2, ...
         // WHERE condition;
         $sql = "
-            UPDATE trees
+            UPDATE new_trees
             SET title = ?
             WHERE id = ?
         ";
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $sql = "
     SELECT id, title, height, type
-    FROM trees
+    FROM new_trees
     ORDER BY type, height DESC
     
 ";
@@ -129,14 +129,14 @@ $trees = $stmt->fetchAll();
 
 echo '<ul>';
 foreach($trees as $tree) {
-    echo '<li>'. $tree['id'] . ' ' . $tree['title'] . ' ' . $tree['height'] . ' ' . ['Lapuotis', 'Sygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
+    echo '<li>'. $tree['id'] . ' ' . $tree['title'] . ' ' . $tree['height'] . ' ' . ['Lapuotis', 'Spygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
 }
 echo '</ul>';
 
 
 $sql = "
     SELECT type, sum(height) AS height_sum, count(id) as trees_count, GROUP_CONCAT(title, '^O-O^') AS titles
-    FROM trees
+    FROM new_trees
     GROUP BY type
     
 ";
@@ -146,6 +146,6 @@ $trees = $stmt->fetchAll();
 
 echo '<ul>';
 foreach($trees as $tree) {
-    echo '<li>'. $tree['height_sum'] . ' ' . $tree['trees_count'] . ' ' .$tree['titles'] . ' ' .['Lapuotis', 'Sygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
+    echo '<li>'. $tree['height_sum'] . ' ' . $tree['trees_count'] . ' ' .$tree['titles'] . ' ' .['Lapuotis', 'Spygliuotis', 'Palme'][$tree['type'] - 1] . '</li>';
 }
 echo '</ul>';
