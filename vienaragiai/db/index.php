@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            'type' => $_POST['type'],
             'a' => $_POST['title']
         ]);
-        header('Location: http://localhost/vienaragiai/db/');
+        header('Location: http://localhost/php-paskaitos/vienaragiai/db/');
         die;
     }
 
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_POST['id']]);
 
-        header('Location: http://localhost/vienaragiai/db/');
+        header('Location: http://localhost/php-paskaitos/vienaragiai/db/');
         die;
     }
 
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$_POST['title'], $_POST['id']]);
 
-        header('Location: http://localhost/vienaragiai/db/');
+        header('Location: http://localhost/php-paskaitos/vienaragiai/db/');
         die;
     }
 }
