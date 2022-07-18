@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Animal as A;
+use App\Models\Color as C;
 
-class Color extends Model
+class Animal extends Model
 {
     use HasFactory;
 
-    public function animals()
+    public function getThisAnimalsColor_plese()
     {
-        return $this->hasMany(A::class, 'color_id', 'id');
+        return $this->belongsTo(C::class, 'color_id', 'id');
     }
 }

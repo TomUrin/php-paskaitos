@@ -3,19 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\Color;
-use App\Http\Requests\StoreColorRequest;
-use App\Http\Requests\UpdateColorRequest;
+use Illuminate\Http\Request;
 
 class ColorController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        // $colors = Color::all()->sortByDesc('title');
+        // $colors = Color::where('id', '<', 100)->orderBy('title')->get();
+
+        $colors = match($request->sort) {
+            'asc' => Color::orderBy('title', 'asc')->get(),
+            'desc' => Color::orderBy('title', 'desc')->get(),
+            default => Color::all()
+        };
+           
+        return view('color.index', ['colors' => $colors]);
     }
 
     /**
@@ -25,18 +34,26 @@ class ColorController extends Controller
      */
     public function create()
     {
-        //
+        return view('color.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreColorRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreColorRequest $request)
+    public function store(Request $request)
     {
-        //
+        $color = new Color;
+
+        $color->color = $request->create_color_input;
+
+        $color->title = $request->color_title ?? 'no title';
+
+        $color->save();
+
+        return redirect()->route('colors-index')->with('success', 'You are the best!');
     }
 
     /**
@@ -45,9 +62,11 @@ class ColorController extends Controller
      * @param  \App\Models\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function show(Color $color)
+    public function show(int $colorId)
     {
-        //
+        $color = Color::where('id', $colorId)->first();
+        
+        return view('color.show', ['color' => $color]);
     }
 
     /**
@@ -58,19 +77,27 @@ class ColorController extends Controller
      */
     public function edit(Color $color)
     {
-        //
+        
+        
+        return view('color.edit', ['color' => $color]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateColorRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateColorRequest $request, Color $color)
+    public function update(Request $request, Color $color)
     {
-        //
+        $color->color = $request->create_color_input;
+
+        $color->title = $request->color_title ?? 'no title';
+
+        $color->save();
+
+        return redirect()->route('colors-index');
     }
 
     /**
@@ -81,6 +108,14 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        //
+        
+        if (!$color->animals->count()) {
+            $color->delete();
+            return redirect()->route('colors-index')->with('deleted', 'Color gone!');
+        }
+        return redirect()->back()->with('deleted', 'No no, it is imposible!');
+       
+
+        
     }
 }

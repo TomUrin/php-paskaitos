@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController as A;
 use App\Http\Controllers\SumaController as S;
+use App\Http\Controllers\ColorController as C;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,35 @@ Route::get('/', function () {
 
 Route::get('/bebras', fn() => 'Valio, bebrams');
 
-Route::get('/barsukas', [A::class, 'barsukas']);
+// Route::get('/barsukas', [A::class, 'barsukas']);
 
-Route::get('/briedis/{id}', [A::class, 'briedis']);
+// Route::get('/briedis/{id}', [A::class, 'briedis']);
 
-Route::get('/suma/{s1?}/{s2?}', [S::class, 'suma']);
+// Route::get('/suma/{s1?}/{s2?}', [S::class, 'suma']);
 
 Route::get('/skirtumas', [S::class, 'skirtumas'])->name('forma');
 Route::post('/skirtumas', [S::class, 'skaiciuoti'])->name('skaiciuokle');
+
+//Colors
+Route::get('/colors', [C::class, 'index'])->name('colors-index')->middleware('rp:user');
+Route::get('/colors/create', [C::class, 'create'])->name('colors-create')->middleware('rp:admin');
+Route::post('/colors', [C::class, 'store'])->name('colors-store')->middleware('rp:admin');
+Route::get('/colors/edit/{color}', [C::class, 'edit'])->name('colors-edit')->middleware('rp:admin');
+Route::put('/colors/{color}', [C::class, 'update'])->name('colors-update')->middleware('rp:admin');
+Route::delete('/colors/{color}', [C::class, 'destroy'])->name('colors-delete')->middleware('rp:admin');
+Route::get('/colors/show/{id}', [C::class, 'show'])->name('colors-show')->middleware('rp:user');
+
+//Animals
+Route::get('/animals', [A::class, 'index'])->name('animals-index');
+Route::get('/animals/create', [A::class, 'create'])->name('animals-create');
+Route::post('/animals', [A::class, 'store'])->name('animals-store');
+Route::get('/animals/edit/{animal}', [A::class, 'edit'])->name('animals-edit');
+Route::put('/animals/{animal}', [A::class, 'update'])->name('animals-update');
+Route::delete('/animals/{animal}', [A::class, 'destroy'])->name('animals-delete');
+Route::get('/animals/show/{id}', [A::class, 'show'])->name('animals-show');
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
